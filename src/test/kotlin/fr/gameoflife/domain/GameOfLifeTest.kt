@@ -29,8 +29,8 @@ class GameOfLifeTest {
       O X X
     """.trimIndent())
     assertThat(game.nextState()).isEqualTo("""
-      X X O
-      O X X
+      X X X
+      X X X
     """.trimIndent())
   }
 
@@ -42,9 +42,9 @@ class GameOfLifeTest {
       X X O
     """.trimIndent())
     assertThat(game.nextState()).isEqualTo("""
-      O O O
+      O X O
       O O X
-      X X O
+      X X X
     """.trimIndent())
   }
 
@@ -56,9 +56,9 @@ class GameOfLifeTest {
       X X O
     """.trimIndent())
     assertThat(game.nextState()).isEqualTo("""
-      X X O
+      X X X
       O O X
-      X X O
+      X X X
     """.trimIndent())
   }
 
