@@ -4,12 +4,7 @@ class Grid(val cells: List<GCell>) {
   fun updateState(): Grid {
     val updatedGrid = cells
             .map { CellWithNeighbors(it, findNeighbors(it)) }
-            .map {
-              it.applyRule({
-                if (it.numberOfAliveNeighbors < 2) GCell(it.cell.columnIndex, "O")
-                else GCell(it.cell.columnIndex, it.cell.state)
-              })
-            }
+            .map { it.applyRule { Rules.RULE_ONE.rule(it) }}
 
     return Grid(updatedGrid)
   }
