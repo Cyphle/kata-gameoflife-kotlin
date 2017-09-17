@@ -42,13 +42,9 @@ class GameOfLifeTest {
       X X O
     """.trimIndent())
     assertThat(game.nextState()).isEqualTo("""
-      O X O
-      O O X
-      X X X
+      O O O
+      O X X
+      X X O
     """.trimIndent())
-
-    """O O O
-    O X O
-    O X O"""
   }
 }
