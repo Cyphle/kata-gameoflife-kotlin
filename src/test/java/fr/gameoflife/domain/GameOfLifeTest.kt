@@ -15,4 +15,10 @@ class GameOfLifeTest {
     val game = GameOfLife("O X O")
     assertThat(game.nextState()).isEqualTo("O O O")
   }
+
+  @Test
+  fun `should have a game of cells when it is a grid of one line`() {
+    val game = GameOfLife("X X X")
+    assertThat(game.nextState()).isEqualTo("O X O")
+  }
 }
