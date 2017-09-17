@@ -4,7 +4,7 @@ class Grid(val cells: List<GCell>) {
   fun updateState(): Grid {
     val updatedGrid = cells
             .map { CellWithNeighbors(it, findNeighbors(it)) }
-            .map { it.applyRule { Rules.RULE_ONE.rule(it) } }
+            .map { it.applyRules(Rules.values().toList()) }
     return Grid(updatedGrid)
   }
 
@@ -14,7 +14,7 @@ class Grid(val cells: List<GCell>) {
     return cells
             .groupBy { it.rowIndex }
             .toSortedMap()
-            .map { it.value.sortedBy { it.columnIndex } }.joinToString("\n") { it.joinToString(" ") { it.state } }
+            .map { it.value.sortedBy { it.columnIndex } }.joinToString("\n") { it.joinToString(" ") { it.state.stateString } }
   }
 
   private fun isWestDiagonalNeighbor(reference: GCell, toCompare: GCell) =

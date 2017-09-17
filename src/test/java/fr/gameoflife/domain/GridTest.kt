@@ -7,62 +7,62 @@ class GridTest {
   @Test
   fun `should find neighbors with grid 1x3`() {
     val grid = Grid(listOf(
-            GCell(1, 1, "X"),
-            GCell(1, 2, "X"),
-            GCell(1, 3, "X")
+            GCell(1, 1, State.ALIVE),
+            GCell(1, 2, State.ALIVE),
+            GCell(1, 3, State.ALIVE)
     ))
 
-    val neighborOfOne = grid.findNeighbors(GCell(1, 1, "X"));
-    val neighborOfTwo = grid.findNeighbors(GCell(1, 2, "X"));
+    val neighborOfOne = grid.findNeighbors(GCell(1, 1, State.ALIVE));
+    val neighborOfTwo = grid.findNeighbors(GCell(1, 2, State.ALIVE));
 
-    assertThat(neighborOfOne).isEqualTo(listOf(GCell(1, 2, "X")));
-    assertThat(neighborOfTwo).isEqualTo(listOf(GCell(1, 1, "X"), GCell(1, 3, "X")));
+    assertThat(neighborOfOne).isEqualTo(listOf(GCell(1, 2, State.ALIVE)));
+    assertThat(neighborOfTwo).isEqualTo(listOf(GCell(1, 1, State.ALIVE), GCell(1, 3, State.ALIVE)));
   }
 
   @Test
   fun `should find neighbors with grid 2x3`() {
     val grid = Grid(listOf(
-            GCell(1, 1, "X"),
-            GCell(1, 2, "X"),
-            GCell(1, 3, "X"),
-            GCell(2, 1, "X"),
-            GCell(2, 2, "X"),
-            GCell(2, 3, "X")
+            GCell(1, 1, State.ALIVE),
+            GCell(1, 2, State.ALIVE),
+            GCell(1, 3, State.ALIVE),
+            GCell(2, 1, State.ALIVE),
+            GCell(2, 2, State.ALIVE),
+            GCell(2, 3, State.ALIVE)
     ))
 
-    val neighborOfOne = grid.findNeighbors(GCell(1, 1, "X"));
+    val neighborOfOne = grid.findNeighbors(GCell(1, 1, State.ALIVE));
     assertThat(neighborOfOne).isEqualTo(listOf(
-            GCell(1, 2, "X"),
-            GCell(2, 1, "X")
+            GCell(1, 2, State.ALIVE),
+            GCell(2, 1, State.ALIVE)
     ));
-    val neighborOfTwo = grid.findNeighbors(GCell(1, 2, "X"));
+    val neighborOfTwo = grid.findNeighbors(GCell(1, 2, State.ALIVE));
     assertThat(neighborOfTwo).isEqualTo(listOf(
-            GCell(1, 1, "X"),
-            GCell(1, 3, "X"),
-            GCell(2, 2, "X")
+            GCell(1, 1, State.ALIVE),
+            GCell(1, 3, State.ALIVE),
+            GCell(2, 2, State.ALIVE)
     ));
   }
 
   @Test
   fun `should find neighbors with grid 3x3`() {
     val grid = Grid(listOf(
-            GCell(1, 1, "X"),
-            GCell(1, 2, "X"),
-            GCell(1, 3, "X"),
-            GCell(2, 1, "X"),
-            GCell(2, 2, "X"),
-            GCell(2, 3, "X"),
-            GCell(3, 1, "X"),
-            GCell(3, 2, "X"),
-            GCell(3, 3, "X")
+            GCell(1, 1, State.ALIVE),
+            GCell(1, 2, State.ALIVE),
+            GCell(1, 3, State.ALIVE),
+            GCell(2, 1, State.ALIVE),
+            GCell(2, 2, State.ALIVE),
+            GCell(2, 3, State.ALIVE),
+            GCell(3, 1, State.ALIVE),
+            GCell(3, 2, State.ALIVE),
+            GCell(3, 3, State.ALIVE)
     ))
 
-    val neighborOfOne = grid.findNeighbors(GCell(2, 2, "X"));
+    val neighborOfOne = grid.findNeighbors(GCell(2, 2, State.ALIVE));
     assertThat(neighborOfOne).isEqualTo(listOf(
-            GCell(1, 2, "X"),
-            GCell(3, 2, "X"),
-            GCell(2, 1, "X"),
-            GCell(2, 3, "X")
+            GCell(1, 2, State.ALIVE),
+            GCell(3, 2, State.ALIVE),
+            GCell(2, 1, State.ALIVE),
+            GCell(2, 3, State.ALIVE)
     ));
   }
 }

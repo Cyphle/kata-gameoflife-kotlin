@@ -43,7 +43,21 @@ class GameOfLifeTest {
     """.trimIndent())
     assertThat(game.nextState()).isEqualTo("""
       O O O
+      O O X
+      X X O
+    """.trimIndent())
+  }
+
+  @Test
+  fun `should have a game of cells when there is a grid of 3x3 rule overcrowding`() {
+    val game = GameOfLife("""
+      X X O
       O X X
+      X X O
+    """.trimIndent())
+    assertThat(game.nextState()).isEqualTo("""
+      X X O
+      O O X
       X X O
     """.trimIndent())
   }

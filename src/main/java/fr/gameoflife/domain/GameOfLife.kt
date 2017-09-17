@@ -12,7 +12,7 @@ class GameOfLife(val initialGrid: String) {
     return Grid(initialGrid
             .split("\n")
             .mapIndexed { rowIndex, line ->
-              line.split(" ").mapIndexed { columnIndex, state -> GCell(rowIndex, columnIndex, state) }
+              line.split(" ").mapIndexed { columnIndex, state -> GCell(rowIndex, columnIndex, State.findByStateString(state)) }
             }
             .flatten())
   }
