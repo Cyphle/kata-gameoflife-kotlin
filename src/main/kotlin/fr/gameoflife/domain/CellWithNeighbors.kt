@@ -1,6 +1,6 @@
 package fr.gameoflife.domain
 
-data class CellWithNeighbors(var cell: GCell, val neighbors: List<GCell>) {
+data class CellWithNeighbors(var cell: GCell, private val neighbors: List<GCell>) {
   var numberOfAliveNeighbors: Int = -1
 
   init {

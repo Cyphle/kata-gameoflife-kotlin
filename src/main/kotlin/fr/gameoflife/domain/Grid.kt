@@ -1,6 +1,6 @@
 package fr.gameoflife.domain
 
-class Grid(val cells: List<GCell>) {
+class Grid(private val cells: List<GCell>) {
   fun updateState(): Grid {
     val updatedGrid = cells
             .map { CellWithNeighbors(it, findNeighbors(it)) }

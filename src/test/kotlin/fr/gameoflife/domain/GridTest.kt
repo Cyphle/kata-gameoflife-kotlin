@@ -12,11 +12,11 @@ class GridTest {
             GCell(1, 3, State.ALIVE)
     ))
 
-    val neighborOfOne = grid.findNeighbors(GCell(1, 1, State.ALIVE));
-    val neighborOfTwo = grid.findNeighbors(GCell(1, 2, State.ALIVE));
+    val neighborOfOne = grid.findNeighbors(GCell(1, 1, State.ALIVE))
+    val neighborOfTwo = grid.findNeighbors(GCell(1, 2, State.ALIVE))
 
-    assertThat(neighborOfOne).isEqualTo(listOf(GCell(1, 2, State.ALIVE)));
-    assertThat(neighborOfTwo).isEqualTo(listOf(GCell(1, 1, State.ALIVE), GCell(1, 3, State.ALIVE)));
+    assertThat(neighborOfOne).isEqualTo(listOf(GCell(1, 2, State.ALIVE)))
+    assertThat(neighborOfTwo).isEqualTo(listOf(GCell(1, 1, State.ALIVE), GCell(1, 3, State.ALIVE)))
   }
 
   @Test
@@ -30,17 +30,17 @@ class GridTest {
             GCell(2, 3, State.ALIVE)
     ))
 
-    val neighborOfOne = grid.findNeighbors(GCell(1, 1, State.ALIVE));
+    val neighborOfOne = grid.findNeighbors(GCell(1, 1, State.ALIVE))
     assertThat(neighborOfOne).isEqualTo(listOf(
             GCell(1, 2, State.ALIVE),
             GCell(2, 1, State.ALIVE)
-    ));
-    val neighborOfTwo = grid.findNeighbors(GCell(1, 2, State.ALIVE));
+    ))
+    val neighborOfTwo = grid.findNeighbors(GCell(1, 2, State.ALIVE))
     assertThat(neighborOfTwo).isEqualTo(listOf(
             GCell(1, 1, State.ALIVE),
             GCell(1, 3, State.ALIVE),
             GCell(2, 2, State.ALIVE)
-    ));
+    ))
   }
 
   @Test
@@ -57,12 +57,12 @@ class GridTest {
             GCell(3, 3, State.ALIVE)
     ))
 
-    val neighborOfOne = grid.findNeighbors(GCell(2, 2, State.ALIVE));
+    val neighborOfOne = grid.findNeighbors(GCell(2, 2, State.ALIVE))
     assertThat(neighborOfOne).isEqualTo(listOf(
             GCell(1, 2, State.ALIVE),
             GCell(3, 2, State.ALIVE),
             GCell(2, 1, State.ALIVE),
             GCell(2, 3, State.ALIVE)
-    ));
+    ))
   }
 }

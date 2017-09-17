@@ -1,7 +1,7 @@
 package fr.gameoflife.domain
 
-class GameOfLife(val initialGrid: String) {
-  var grid: Grid = toGrid()
+class GameOfLife(private val initialGrid: String) {
+  private var grid: Grid = toGrid()
 
   fun nextState(): String {
     grid = grid.updateState()

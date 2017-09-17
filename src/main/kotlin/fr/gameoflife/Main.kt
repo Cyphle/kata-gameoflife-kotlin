@@ -26,6 +26,6 @@ fun main(args: Array<String>) {
   try {
     Thread.sleep(10000)
   } finally {
-    fixedRateTimer.cancel();
+    fixedRateTimer.cancel()
   }
 }
