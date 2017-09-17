@@ -1,5 +1,5 @@
 package fr.gameoflife.domain
 
-data class GCell(val columnIndex: Int, val state: String) {
-  constructor(cell: GCell) : this(cell.columnIndex, cell.state)
+data class GCell(val rowIndex: Int = 1, val columnIndex: Int, val state: String) {
+  constructor(cell: GCell) : this(cell.rowIndex, cell.columnIndex, cell.state)
 }
