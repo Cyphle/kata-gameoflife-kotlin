@@ -16,6 +16,9 @@ class Grid(val cells: List<GCell>) {
   }
 
   override fun toString(): String {
-    return cells.joinToString(" ") { it.state }
+    return cells
+            .groupBy { it.rowIndex }
+            .toSortedMap()
+            .map { it.value.sortedBy { it.columnIndex } }.joinToString("\n") { it.joinToString(" ") { it.state } }
   }
 }
