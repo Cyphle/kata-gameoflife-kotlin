@@ -9,4 +9,8 @@ enum class Rules(val rule: (CellWithNeighbors) -> GCell) {
     if (cellWithNeighbors.numberOfAliveNeighbors > 3) GCell(cellWithNeighbors.cell.rowIndex, cellWithNeighbors.cell.columnIndex, State.DEAD)
     else GCell(cellWithNeighbors.cell)
   }),
+  RULE_REPRODUCTION({ cellWithNeighbors ->
+    if (cellWithNeighbors.numberOfAliveNeighbors == 3 && cellWithNeighbors.cell.state == State.DEAD) GCell(cellWithNeighbors.cell.rowIndex, cellWithNeighbors.cell.columnIndex, State.ALIVE)
+    else GCell(cellWithNeighbors.cell)
+  })
 }
