@@ -8,12 +8,7 @@ class Grid(val cells: List<GCell>) {
     return Grid(updatedGrid)
   }
 
-  fun findNeighbors(cell: GCell): List<GCell> {
-    return cells.filter {
-      (it.columnIndex == cell.columnIndex && (it.rowIndex == cell.rowIndex - 1 || it.rowIndex == cell.rowIndex + 1))
-              || (it.rowIndex == cell.rowIndex && (it.columnIndex == cell.columnIndex - 1 || it.columnIndex == cell.columnIndex + 1))
-    }
-  }
+  fun findNeighbors(cell: GCell): List<GCell> = cells.filter { isEstOrWestNeighbor(cell, it) || isNorthOrSouthNeighbor(cell, it) || isEstDiagonalNeighbor(cell, it) || isWestDiagonalNeighbor(cell, it) }
 
   override fun toString(): String {
     return cells
@@ -21,4 +16,16 @@ class Grid(val cells: List<GCell>) {
             .toSortedMap()
             .map { it.value.sortedBy { it.columnIndex } }.joinToString("\n") { it.joinToString(" ") { it.state } }
   }
+
+  private fun isWestDiagonalNeighbor(reference: GCell, toCompare: GCell) =
+          (toCompare.columnIndex == reference.columnIndex + 1 && (toCompare.rowIndex == reference.rowIndex - 1 || toCompare.rowIndex == reference.rowIndex + 1))
+
+  private fun isEstDiagonalNeighbor(reference: GCell, toCompare: GCell) =
+          (toCompare.columnIndex == reference.columnIndex - 1 && (toCompare.rowIndex == reference.rowIndex - 1 || toCompare.rowIndex == reference.rowIndex + 1))
+
+  private fun isNorthOrSouthNeighbor(reference: GCell, toCompare: GCell) =
+          (toCompare.rowIndex == reference.rowIndex && (toCompare.columnIndex == reference.columnIndex - 1 || toCompare.columnIndex == reference.columnIndex + 1))
+
+  private fun isEstOrWestNeighbor(reference: GCell, toCompare: GCell) =
+          (toCompare.columnIndex == reference.columnIndex && (toCompare.rowIndex == reference.rowIndex - 1 || toCompare.rowIndex == reference.rowIndex + 1))
 }

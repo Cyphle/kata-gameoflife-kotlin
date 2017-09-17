@@ -29,8 +29,26 @@ class GameOfLifeTest {
       O X X
     """.trimIndent())
     assertThat(game.nextState()).isEqualTo("""
-      O X O
-      O X O
+      X X O
+      O X X
     """.trimIndent())
+  }
+
+  @Test
+  fun `should have a game of cells when there is a grid of 3x3`() {
+    val game = GameOfLife("""
+      X O O
+      O X X
+      X X O
+    """.trimIndent())
+    assertThat(game.nextState()).isEqualTo("""
+      O X O
+      O O X
+      X X X
+    """.trimIndent())
+
+    """O O O
+    O X O
+    O X O"""
   }
 }
